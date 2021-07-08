@@ -1,0 +1,29 @@
+AOP : 관점지향프로그래밍 
+     핵심관심과 공통 관심을 나누어서 보고  그 관정을 기준으로 각각 모듈화 하겠다는 것
+     - 핵심관심 : 해당 클래스가 실행해야 될 원래 기능
+     - 공통관심 : 여러 클래스에 중복적으로 사용되는 기능
+     
+주요용어
+ - Aspect : 중복적으로 사용되는 기능을 모듈할 한것 , 즉 공통관심을 모듈화 한것
+  
+ - Advice : 실질적으로 어떤일을 해야 할지에 대한 공통관심을 구현한 것
+ - JoinPoint : Advice가 적용될 위치, 끼어들 수 있는 지점을 말한다. 
+               보통 메서드 진입지점, 생성자 호출 지점등이 있다.
+ - PointCut : JoinPoint의 상세한 조건을 정의한 것 
+              'A란 메서드의 진입 시점에 호출 할것'                       
+   상세한 조건들의 예
+    - execution(* 메소드이름()) : 해당 메소드가 실행되면 
+    - execution(* set*()) : 이름이 set으로 시작하는 모든 메소드가 실행되면
+    - execution(* com.xyz.serve. * set*()):해당 패키지에 set으로 시작하는 모든 메소드가 실행되면
+    - execution(* com.xyz.serve.클래스이름 set*()): 해당 패키지안 클래스에서 set으로 시작하는 모든 메소드가 실행되면
+    
+  - Advice 결합점 결합 타입
+    • Before advice: joinpoint 전에 수행되는 advice
+    • After returning advice: joinpoint가 성공적으로 리턴된 후에 동작하는 advice
+    • After throwing advice: 예외가 발생하여 joinpoint가 빠져나갈때 수행되는 advice
+    • After (finally) advice: join point를 빠져나가는(정상적이거나 예외적인 반환) 방법에 상관없이 수행되는 advice
+    • Around advice: joinpoint 전, 후에 수행되는 advice
+    
+      
+      
+            

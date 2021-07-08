@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- AOP -->
+	<!-- 0. pom.xml에서 aop 라이브러리 추가  -->
+	<!-- 1. Namespaces 에서 aop 추가  -->
+	<!-- 2. 관련 객체 생성 -->
+	<bean id="boy" class="com.ict.ex03.Boy"></bean>
+	<bean id="gril" class="com.ict.ex03.Gril"></bean>
+	<bean id="myAspect" class="com.ict.ex03.MyAspect"></bean>
+	
+	<!-- 3. AOP 작성 -->
+	<aop:config>
+		<!-- 어느지점에서 실행할지 설정: aop:pointcut를 설정하는 것 -->
+		<!-- <aop:pointcut expression="execution(* doSomting())" id="myPiontCut"/> -->
+		<aop:pointcut expression="execution(* do*(..))" id="myPiontCut"/>
+		<!-- 무엇을 언제할지 지정(DI 필요) -->
+		<aop:aspect ref="myAspect">
+			<aop:before method="pre" pointcut-ref="myPiontCut"/>
+			<aop:after method="next" pointcut-ref="myPiontCut"/>
+			<aop:after method="next_throwing" pointcut-ref="myPiontCut"/>
+			<!-- <aop:around method="around" pointcut-ref="myPiontCut"/> -->
+		</aop:aspect>
+	</aop:config>
+</beans>
