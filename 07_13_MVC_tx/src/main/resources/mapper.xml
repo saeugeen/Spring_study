@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!-- mapper가 여러개 일때 namespace 로 구분한다. -->
+<mapper namespace="tx">
+	<insert id="cardInsert" parameterType="com.ict.vo.VO">
+		insert into card values(#{consumerid}, #{amount})
+	</insert>
+	<insert id="ticketInsert" parameterType="com.ict.vo.VO">
+	    insert into ticket values(#{consumerid}, #{countnum})
+	</insert>
+	
+	
+	<insert id="cardInsert2" parameterType="com.ict.vo.CVO">
+		insert into card values(#{consumerid}, #{amount})
+	</insert>
+	<insert id="ticketInsert2" parameterType="com.ict.vo.TVO">
+	    insert into ticket values(#{consumerid}, #{countnum})
+	</insert>
+</mapper>
+
+
+
+
+
+
+
