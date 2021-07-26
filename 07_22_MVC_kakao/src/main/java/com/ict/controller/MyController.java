@@ -44,7 +44,7 @@ public class MyController {
 			// 요구하는 파라미터값
 			StringBuffer sb = new StringBuffer();
 			sb.append("grant_type=authorization_code");
-			sb.append("&client_id=");
+			sb.append("&client_id=c3274e95003d4408e38f5b0540ab6251");
 			sb.append("&redirect_uri=http://localhost:8080/login.do");
 			sb.append("&code="+code);
 			bw.write(sb.toString());
